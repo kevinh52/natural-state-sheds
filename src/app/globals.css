@@ -1,26 +1,95 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 220;
+  --background-end-rgb: 245, 245, 220;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 245, 245, 220;
+    --background-end-rgb: 245, 245, 220;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom colors based on Natural State Sheds logo */
+.bg-cream {
+  background-color: #F5F5DC;
+}
+
+.bg-brown {
+  background-color: #8B4513;
+}
+
+.bg-dark-green {
+  background-color: #228B22;
+}
+
+.bg-light-blue {
+  background-color: #87CEEB;
+}
+
+.text-brown {
+  color: #8B4513;
+}
+
+.text-dark-green {
+  color: #228B22;
+}
+
+.text-light-blue {
+  color: #87CEEB;
+}
+
+.border-brown {
+  border-color: #8B4513;
+}
+
+.border-dark-green {
+  border-color: #228B22;
+}
+
+.border-light-blue {
+  border-color: #87CEEB;
+}
+
+/* Leaflet map container styles */
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #228B22;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-dark-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply bg-brown text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-800 transition-colors duration-200;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-lg p-6 border border-gray-200;
+}
+
+/* Header styles */
+.header-gradient {
+  background: linear-gradient(135deg, #228B22 0%, #8B4513 100%);
 }
